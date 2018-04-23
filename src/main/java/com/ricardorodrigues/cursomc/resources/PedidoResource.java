@@ -1,7 +1,5 @@
 package com.ricardorodrigues.cursomc.resources;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,13 +15,13 @@ import com.ricardorodrigues.cursomc.services.PedidoService;
 public class PedidoResource {
 
 	@Autowired
-	private PedidoService service; 
-	
-	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
-		
-		Pedido obj = service.buscar(id);
-		
+	private PedidoService service;
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Pedido> find(@PathVariable Integer id) {
+
+		Pedido obj = service.find(id);
+
 		return ResponseEntity.ok().body(obj);
 	}
 }
